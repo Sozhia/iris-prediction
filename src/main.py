@@ -84,3 +84,9 @@ print("Enter SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm:")
 user_input = [float(input(f"{feature}: ")) for feature in data.feature_names]
 user_input_scaled = scaler.transform([user_input])
 
+# Predict the class
+target_class = nn_classifier.predict(user_input_scaled)[0]
+target_name = data.target_names[target_class]
+print(f"Predicted class: {target_name}")
+
+
