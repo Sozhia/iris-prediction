@@ -79,3 +79,8 @@ y_pred = nn_classifier.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Neural Network Classification Accuracy: {accuracy:.2f}")
 
+# Step 5: Prompt user for input and classify
+print("Enter SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm:")
+user_input = [float(input(f"{feature}: ")) for feature in data.feature_names]
+user_input_scaled = scaler.transform([user_input])
+
