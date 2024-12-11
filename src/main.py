@@ -4,6 +4,7 @@ from sklearn.datasets import load_iris
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
+from sklearn.model_selection import train_test_split
 
 
 
@@ -36,11 +37,33 @@ X_reduced = pca.fit_transform(X_scaled)
 centroids_reduced = pca.transform(centroids)
 
 plt.figure(figsize=(8, 6))
-plt.scatter(X_reduced[:, 0], X_reduced[:, 1], c=labels, cmap='viridis', alpha=0.7, edgecolors='k')
-plt.scatter(centroids_reduced[:, 0], centroids_reduced[:, 1], c='red', marker='X', s=200, label='Centroids')
+plt.scatter(X_reduced[:, 0],
+            X_reduced[:, 1],
+            c=labels,
+            cmap='viridis',
+            alpha=0.7,
+            edgecolors='k')
+
+plt.scatter(centroids_reduced[:, 0],
+            centroids_reduced[:, 1],
+            c='red',
+            marker='X',
+            s=200,
+            label='Centroids')
+
 plt.title(f"KMeans Clusters (k={k}) with PCA")
 plt.xlabel("Principal Component 1")
 plt.ylabel("Principal Component 2")
 plt.legend()
 plt.grid(True)
 plt.show()
+
+# Step 4: Train a neural network for classification
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X_scaled,
+                                                    y,
+                                                    test_size=0.3,
+                                                    random_state=42)
+
+
+
