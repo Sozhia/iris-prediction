@@ -13,3 +13,5 @@ print("Feature names:", data.feature_names)
 print("Target classes:", data.target_names)
 print("First 5 rows of features:\n", X[:5])
 print("First 5 target labels:", y[:5])
+
+k = int(input("Enter the number of clusters for K-Means: "))
