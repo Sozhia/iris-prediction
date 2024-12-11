@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
+from sklearn.metrics import accuracy_score
 
 
 
@@ -72,4 +73,9 @@ nn_classifier = MLPClassifier(hidden_layer_sizes=(10, 10),
                               max_iter=500,
                               random_state=42)
 nn_classifier.fit(X_train, y_train)
+
+# Evaluate the model
+y_pred = nn_classifier.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Neural Network Classification Accuracy: {accuracy:.2f}")
 
