@@ -111,3 +111,15 @@ python main.py
  * Optimize neural network hyperparameters.
 
 * Enhance input validation and user experience.
+
+## AI Contributions and Muse
+
+This project was enhanced with assistance from AI tools to streamline development and documentation:
+
+ * [Amazon Q](https://aws.amazon.com/es/q/): For code generation, helping write efficient functions for clustering and classification.
+
+ * [ChatGPT](https://chatgpt.com/): For documentation, explaining how libraries work, and providing code examples.
+
+ * [GitHub Copilot](https://github.com/features/copilot): For inline code suggestions and reducing development time.
+
+These AI tools collectively improved the development process and the final documentation quality, ensuring the project is clear, concise, and actionable.
