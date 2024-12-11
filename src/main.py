@@ -5,6 +5,8 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPClassifier
+
 
 
 
@@ -65,5 +67,9 @@ X_train, X_test, y_train, y_test = train_test_split(X_scaled,
                                                     test_size=0.3,
                                                     random_state=42)
 
-
+# Initialize and train the neural network
+nn_classifier = MLPClassifier(hidden_layer_sizes=(10, 10),
+                              max_iter=500,
+                              random_state=42)
+nn_classifier.fit(X_train, y_train)
 
