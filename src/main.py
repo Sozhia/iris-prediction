@@ -9,9 +9,6 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score
 from scipy.spatial.distance import cdist
 
-
-
-
 # Load the Iris dataset
 data = load_iris()
 X = data.data  # Features
@@ -118,6 +115,21 @@ distances = cdist(user_input_scaled, X_scaled, metric='euclidean').flatten()
 neighbors_idx = np.argsort(distances)[:k]
 neighbors_reduced = X_reduced[neighbors_idx]
 
+# Highlight the k nearest neighbors
+plt.scatter(neighbors_reduced[:, 0],
+            neighbors_reduced[:, 1],
+            c='orange',
+            marker='s',
+            s=150,
+            label=f'{k} Nearest Neighbors',
+            edgecolors='k')
+
+plt.title(f"KMeans Clusters (k={k}) with PCA and User Input")
+plt.xlabel("Principal Component 1")
+plt.ylabel("Principal Component 2")
+plt.legend()
+plt.grid(True)
+plt.show()
 
 
 
