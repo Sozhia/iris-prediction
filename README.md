@@ -10,5 +10,6 @@ The columns in this dataset are:
   * PetalWidthCm
   * Species
 
+## Libraries
 
-This neural network implemented in Python using [TensorFlow](https://www.tensorflow.org/?hl=es-419), [NumPy](https://numpy.org/) and [Keras](https://keras.io/) allows the classification of a flower based on user-provided inputs [SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm]. Additionally, it provides supplementary information, such as insights related to the neural network.
+
