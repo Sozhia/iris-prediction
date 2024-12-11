@@ -34,3 +34,13 @@ centroids = kmeans.cluster_centers_
 pca = PCA(n_components=2)
 X_reduced = pca.fit_transform(X_scaled)
 centroids_reduced = pca.transform(centroids)
+
+plt.figure(figsize=(8, 6))
+plt.scatter(X_reduced[:, 0], X_reduced[:, 1], c=labels, cmap='viridis', alpha=0.7, edgecolors='k')
+plt.scatter(centroids_reduced[:, 0], centroids_reduced[:, 1], c='red', marker='X', s=200, label='Centroids')
+plt.title(f"KMeans Clusters (k={k}) with PCA")
+plt.xlabel("Principal Component 1")
+plt.ylabel("Principal Component 2")
+plt.legend()
+plt.grid(True)
+plt.show()
