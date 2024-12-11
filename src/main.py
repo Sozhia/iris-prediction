@@ -7,6 +7,7 @@ from sklearn.decomposition import PCA
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score
+from scipy.spatial.distance import cdist
 
 
 
@@ -111,6 +112,12 @@ plt.scatter(user_point_reduced[:, 0],
             s=200,
             label='User Input',
             edgecolors='white')
+
+# Compute distances to all points and find the k nearest neighbors
+distances = cdist(user_input_scaled, X_scaled, metric='euclidean').flatten()
+neighbors_idx = np.argsort(distances)[:k]
+neighbors_reduced = X_reduced[neighbors_idx]
+
 
 
 
