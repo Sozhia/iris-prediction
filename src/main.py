@@ -89,4 +89,28 @@ target_class = nn_classifier.predict(user_input_scaled)[0]
 target_name = data.target_names[target_class]
 print(f"Predicted class: {target_name}")
 
+# Step 6: Highlight the user's input point and its nearest neighbors
+user_point_reduced = pca.transform(user_input_scaled)
+plt.figure(figsize=(8, 6))
+plt.scatter(X_reduced[:, 0],
+            X_reduced[:, 1],
+            c=labels,
+            cmap='viridis',
+            alpha=0.7,
+            edgecolors='k')
+plt.scatter(centroids_reduced[:, 0],
+            centroids_reduced[:, 1],
+            c='red',
+            marker='X',
+            s=200,
+            label='Centroids')
+plt.scatter(user_point_reduced[:, 0],
+            user_point_reduced[:, 1],
+            c='blue',
+            marker='o',
+            s=200,
+            label='User Input',
+            edgecolors='white')
+
+
 
