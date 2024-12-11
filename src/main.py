@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
 
 
 
@@ -28,3 +29,8 @@ kmeans = KMeans(n_clusters=k, init='k-means++', random_state=42)
 kmeans.fit(X_scaled)
 labels = kmeans.labels_
 centroids = kmeans.cluster_centers_
+
+# Visualize clusters using PCA for dimensionality reduction
+pca = PCA(n_components=2)
+X_reduced = pca.fit_transform(X_scaled)
+centroids_reduced = pca.transform(centroids)
